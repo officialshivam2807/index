@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Valentine 💖</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    color: #fff;
+}
+
+.container {
+    margin-top: 60px;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+.message {
+    font-size: 1.15em;
+    margin: 20px;
+    line-height: 1.6em;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#yesBtn {
+    background-color: #ff4d6d;
+    color: white;
+    margin-right: 15px;
+}
+
+#noBtn {
+    background-color: white;
+    color: #ff4d6d;
+    position: absolute;
+}
+
+.heart {
+    position: fixed;
+    bottom: -10px;
+    color: pink;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+.success img {
+    width: 220px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+@keyframes floatUp {
+    0% {transform: translateY(0); opacity:1;}
+    100% {transform: translateY(-100vh); opacity:0;}
+}
+</style>
+</head>
+<body>
+
+<!-- Background Music -->
+<audio autoplay loop>
+  <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+</audio>
+
+<div class="container">
+    <h1>CHHOTTI ❤️</h1>
+
+    <div class="message">
+        From the moment you came into my life, everything became more beautiful.  
+        Your smile brightens my darkest days, and your love makes my world complete.  
+
+        Every heartbeat of mine whispers your name, and every dream I see has you in it.  
+
+        I don’t just want today with you…  
+        I want every tomorrow with you. 💖  
+
+        <br><br>
+        Forever yours,  
+        <b>Shivam</b>
+    </div>
+
+    <h2>Will you be my Valentine? 💘</h2>
+
+    <div>
+        <button id="yesBtn">YES ❤️</button>
+        <button id="noBtn">NO 🙈</button>
+    </div>
+</div>
+
+<script>
+// floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "❤";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+// YES button action
+document.getElementById("yesBtn").onclick = () => {
+    document.body.innerHTML = `
+        <div class="success" style="margin-top:70px; text-align:center;">
+            <h1>Yayyyy!!! 💖</h1>
+            <h2>You just made me the happiest person alive 😍</h2>
+            <h3>I love you forever, CHHOTTI ❤️</h3>
+            <img src="photo.jpeg" alt="Our Photo">
+        </div>
+    `;
+
+    // extra floating hearts celebration
+    setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤";
+        heart.style.left = Math.random() * 100 + "vw";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 6000);
+    }, 200);
+};
+
+// moving NO button
+const noBtn = document.getElementById("noBtn");
+noBtn.addEventListener("mouseover", () => {
+    const i = Math.floor(Math.random() * window.innerWidth);
+    const j = Math.floor(Math.random() * window.innerHeight);
+    noBtn.style.left = i + "px";
+    noBtn.style.top = j + "px";
+});
+</script>
+
+</body>
+</html>
